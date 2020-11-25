@@ -1,6 +1,6 @@
 # RSA Algorithm
  
-The RSAtool is a python script I have written in order to practically demonstrate the weakness of bad RSA principles.
+The RSAtool is a python script I have written in order to practically demonstrate the weakness of bad RSA principles. All other scripts and online tools I have found could not handle very big digits, a problem I have solved by using gmpy2 library.
 
 In the case here, p and q are prime numbers that do not have a big difference between them.
 
