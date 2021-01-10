@@ -1,5 +1,6 @@
 #!/usr/bin/env python
 import gmpy2
+import time
 
 """
 N = RSA modulus
@@ -55,20 +56,22 @@ def encryptRSA(m):
     return int(cipher)
  
 if __name__ == "__main__":
+    start_time = time.clock()
     (p, q) = fermat_factor(N)
  
+    print("--------------------------------------------------------------------")
     print("p = {}".format(p))
     print("q = {}".format(q))
- 
+    print("--------------------------------------------------------------------")
     (m) = decryptRSA(p, q)
  
-    print("m = {}".format(m))
+    print("decrypted message = {}".format(m))
  
     (c) = encryptRSA(m)
- 
-    print("c = {}".format(c))
-
+    print("====================================================================")
+    print("re-encrypted message = {}".format(c))
+    print("====================================================================")
     if(c == y):
-        print("The encrypted message matches the ciphertext!")
+        print("The re-encrypted message matches the ciphertext! We have successfully decrypted y in ", time.clock() - start_time, "seconds!")
     else:
         print("There is a mismatch between your encrypted text and the original ciphertext!")
